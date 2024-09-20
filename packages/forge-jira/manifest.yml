@@ -1,0 +1,33 @@
+modules:
+  jira:issuePanel:
+    - key: jira-issue-panel
+      resource: ui
+      resolver:
+        function: resolver
+      title: Let's Sing Together
+      icon: resource:ui;icons/addon.svg
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: ui
+    path: ../ui/build
+    tunnel:
+      port: 3003
+permissions:
+  scopes:
+    - read:jira-user
+    - read:jira-work
+    - write:jira-work
+    - storage:app
+  content:
+    scripts:
+      - unsafe-inline
+      - unsafe-hashes
+      - unsafe-eval
+    styles:
+      - unsafe-inline
+app:
+  id: ari:cloud:ecosystem::app/2cabea09-3148-4a21-9d64-3239245546dc
+  runtime:
+    name: nodejs20.x

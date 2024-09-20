@@ -1,0 +1,34 @@
+modules:
+  confluence:contentAction:
+    - key: conf-content-action
+      resource: ui
+      resolver:
+        function: resolver
+      viewportSize: medium
+      title: Confluence content action example
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: ui
+    path: ../ui/build
+    tunnel:
+      port: 3003
+permissions:
+  scopes:
+    - read:confluence-space.summary # Read a summary of space information without expansions
+    - read:confluence-props # Read content properties
+    - read:confluence-content.all # Read all content, including content body (expansions permitted). Note, APIs using this scope may also return data allowed by read:confluence-space.summary. However, this scope is not a substitute for read:confluence-space.summary
+    - read:confluence-content.summary # Read a summary of the content, which is the content without expansions. Note, APIs using this scope may also return data allowed by read:confluence-space.summary. However, this scope is not a substitute for read:confluence-space.summary
+    - storage:app
+  content:
+    scripts:
+      - unsafe-inline
+      - unsafe-hashes
+      - unsafe-eval
+    styles:
+      - unsafe-inline
+app:
+  id: ari:cloud:ecosystem::app/2cabea09-3148-4a21-9d64-3239245546dc
+  runtime:
+    name: nodejs20.x

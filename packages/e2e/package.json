@@ -1,0 +1,19 @@
+{
+  "name": "@app/e2e",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test:jira": "IS_JIRA=true && playwright test --workers 1 --retries=3",
+    "test:conf": "IS_CONF=true && playwright test --workers 1 --retries=3",
+    "test:jira:ui": "IS_JIRA=true && playwright test --ui",
+    "test:conf:ui": "IS_CONF=true && playwright test --ui",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "devDependencies": {
+    "@app/shared": "workspace:^",
+    "@playwright/test": "^1.47.1",
+    "@types/node": "^22.5.5",
+    "dotenv": "^16.4.5"
+  }
+}

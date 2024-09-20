@@ -1,0 +1,56 @@
+image:
+  name: node:18
+
+pipelines:
+  default:
+    - step:
+        name: Build -> Deploy Jira/Conf -> Install Jira/Conf
+        deployment: Development
+        runs-on:
+          - self.hosted
+          - macos
+        script:
+          - yarn install
+          - yarn dlx @forge/cli
+          - yarn deploy:jira
+          - cd ./packages/forge-jira
+          - forge install --upgrade --site ${BASE_URL} --product jira --non-interactive -e development
+          - cd ../../
+          - yarn deploy:conf
+          - cd ./packages/forge-conf
+          - forge install --upgrade --site ${BASE_URL} --product confluence --non-interactive -e development
+    - step:
+        name: E2E tests
+        runs-on:
+          - self.hosted
+          - macos
+        script:
+          - yarn install
+          - cd ./packages/e2e
+          - yarn playwright install
+          - echo BASE_URL="${BASE_URL}" > .env
+          - echo USER_NAME="${USER_NAME}" >> .env
+          - echo USER_PASSWORD="${USER_PASSWORD}" >> .env
+          - yarn test:jira
+          - yarn test:conf
+    - parallel:
+        - step:
+            name: Deploy Jira version to Production
+            runs-on:
+              - self.hosted
+              - macos
+            trigger: manual
+            script:
+              - yarn install
+              - yarn dlx @forge/cli
+              - yarn deploy:jira -e production
+        - step:
+            name: Deploy Conf version to Production
+            runs-on:
+              - self.hosted
+              - macos
+            trigger: manual
+            script:
+              - yarn install
+              - yarn dlx @forge/cli
+              - yarn deploy:conf -e production

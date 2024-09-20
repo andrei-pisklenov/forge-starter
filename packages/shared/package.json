@@ -1,0 +1,21 @@
+{
+  "name": "@app/shared",
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "directories": {
+    "src": "src"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@forge/api": "^3.9.1",
+    "@forge/events": "^0.9.1",
+    "@forge/resolver": "^1.5.39"
+  }
+}

@@ -1,0 +1,5 @@
+html,
+body,
+#root {
+  background-color: transparent; /* fix for raised views */
+}
