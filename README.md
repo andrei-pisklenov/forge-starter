@@ -1,5 +1,7 @@
 # ForgeStarter
 
+![](./docs/assets/repo-banner-crop.png)
+
 ⚡️ A feature-packed, opinionated starter template for building Atlassian Forge apps. Includes Yarn, Vite, React 18, TypeScript, Vitest, Testing Library, Playwright, Eslint, and Atlaskit — everything you need to get started with modern tooling and best practices.
 
 ## Getting Started
