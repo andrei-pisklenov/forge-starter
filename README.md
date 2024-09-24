@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-### Prerequisites
+### 0. Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -12,7 +12,7 @@ Before you begin, ensure you have the following installed:
 2. [Yarn](https://yarnpkg.com/)
 3. [Forge CLI](https://developer.atlassian.com/platform/forge/getting-started/)
 
-### Install Dependencies
+### 1. Install Dependencies
 
 Run the following command to install the necessary dependencies:
 
@@ -20,29 +20,37 @@ Run the following command to install the necessary dependencies:
 yarn install
 ```
 
-### Initial Build
+### 2. Initial Build
 
 To create the initial build, run one of the following commands, depending on the app version you'd like to start with:
 
 ```bash
-yarn build:jira   # For Jira app
-yarn build:conf   # For Confluence app
+yarn build:jira   # For Jira app version
+yarn build:conf   # For Confluence app version
 ```
 
 
-### Register the Jira or Confluence App
+### 3. Register, Deploy, Install
 
-1. Navigate to the app directory:
-    ```bash
-    cd ./packages/forge-jira    # For Jira
-    cd ./packages/forge-conf    # For Confluence    
-    ```
-2. Register the app with Forge:
-    ```bash
-    forge register
-    ```
+#### Navigate to the app directory
 
-### Deploy to Forge
+```bash
+cd ./packages/forge-jira    # For Jira version
+```
+    
+or
+
+```bash
+cd ./packages/forge-conf    # For Confluence version
+```
+
+#### Register the app with Forge:
+
+```bash
+forge register
+```
+
+#### Deploy to Forge
 
 Deploy the app to the development environment:
 
@@ -50,7 +58,7 @@ Deploy the app to the development environment:
 forge deploy
 ```
 
-### Install the App on Your Cloud Instance
+#### Install the App on Your Cloud Instance
 
 Install the app on your cloud instance by running:
 
@@ -58,7 +66,8 @@ Install the app on your cloud instance by running:
 forge install
 ```
 
-Follow the on-screen instructions to complete the process.
+Follow the on-screen instructions to complete the process. 
+The Forge app should now be installed from the development environment and available on your cloud instance.
 
 
 ## Available Scripts
@@ -80,8 +89,13 @@ Follow the on-screen instructions to complete the process.
 Build the app for Jira or Confluence:
 
 ```bash
-yarn build:jira   # For Jira
-yarn build:conf   # For Confluence
+yarn build:jira   # For Jira version
+```
+
+or
+
+```bash
+yarn build:conf   # For Confluence version
 ```
 
 
@@ -90,8 +104,13 @@ yarn build:conf   # For Confluence
 To build and deploy the app to the Forge development environment, run:
 
 ```bash
-yarn deploy:jira   # For Jira
-yarn deploy:conf   # For Confluence
+yarn deploy:jira   # For Jira version
+```
+
+or
+
+```bash
+yarn deploy:conf   # For Confluence version
 ```
 
 To deploy to another environment (e.g., staging or production), append the environment flag:
@@ -111,20 +130,33 @@ yarn deploy:conf -e production  # For production
 
 # Development Workflow
 
-Once the app is installed, follow this development loop:
+Once the app is installed (see Getting Started), follow this development loop:
 
 1. Start the UI with hot reloading and establish a Forge tunnel to redirect requests to localhost:
     ```bash
-    yarn dev:jira   # For Jira
-    yarn dev:conf   # For Confluence
+    yarn dev:jira   # For Jira version
+    ```
+
+    or
+
+    ```bash
+    yarn dev:conf   # For Confluence version
     ```
 2. Make changes to your app and enjoy instant feedback with hot-reloading.
 3. After major changes to the `manifest.yml`, deploy and reinstall the app:
-  ```bash
-  yarn deploy:jira   # For Jira
-  yarn deploy:conf   # For Confluence
-  cd packages/forge-jira or cd packages/forge-conf and forge install --upgrade   # Install the updated app version
-  ```
+    ```bash
+    yarn deploy:jira   # For Jira version
+    cd packages/forge-jira
+    forge install --upgrade   # Install the updated app version
+    ```
+
+    or
+
+    ```bash
+    yarn deploy:conf   # For Confluence version
+    cd packages/forge-conf
+    forge install --upgrade   # Install the updated app version
+    ```
 
 # License
 

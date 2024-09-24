@@ -12,8 +12,8 @@
   },
   "devDependencies": {
     "@app/shared": "workspace:^",
-    "@playwright/test": "^1.47.1",
-    "@types/node": "^22.5.5",
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^22.6.1",
     "dotenv": "^16.4.5"
   }
 }

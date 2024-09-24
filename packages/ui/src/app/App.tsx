@@ -1,3 +1,4 @@
+import { TESTID } from '@app/shared';
 import { Box } from '@atlaskit/primitives';
 import Spinner from '@atlaskit/spinner';
 import { view } from '@forge/bridge';
@@ -16,7 +17,7 @@ export const App = () => {
   }
 
   return (
-    <Box>
+    <Box testId={TESTID.APP_WRAPPER}>
       {`This is "${String(context.extension.type)}"`}
     </Box>
   );
