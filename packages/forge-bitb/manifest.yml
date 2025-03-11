@@ -1,0 +1,58 @@
+modules:
+  bitbucket:workspaceSettingsMenuPage:
+    - key: workspace-settings-menu-page
+      resource: ui
+      resolver:
+        function: resolver
+      title: Example Page
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: ui
+    path: ../ui/build
+    tunnel:
+      port: 3003
+permissions:
+  scopes:
+    - read:repository:bitbucket
+    - write:repository:bitbucket
+    - admin:repository:bitbucket
+    - delete:repository:bitbucket
+    - read:pullrequest:bitbucket
+    - write:pullrequest:bitbucket
+    - read:project:bitbucket
+    - admin:project:bitbucket
+    - read:workspace:bitbucket
+    - read:user:bitbucket
+    - read:pipeline:bitbucket
+    - write:pipeline:bitbucket
+    - admin:pipeline:bitbucket
+    - read:runner:bitbucket
+    - write:runner:bitbucket
+  content:
+    scripts:
+      - unsafe-inline
+      - unsafe-hashes
+      - unsafe-eval
+    styles:
+      - unsafe-inline
+  external:
+    images:
+      - "*"
+    scripts:
+      - "*"
+    styles:
+      - "*"
+    fonts:
+      - "*"
+    fetch:
+      backend:
+        - "*"
+      client:
+        - "*"
+app:
+  id: ari:cloud:ecosystem::app/1b2e1576-a655-4cc9-b30a-b2c325ccc9a4
+  runtime:
+    name: nodejs22.x
+  

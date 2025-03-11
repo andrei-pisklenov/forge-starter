@@ -4,6 +4,10 @@
 
 ⚡️ A feature-packed, opinionated starter template for building Atlassian Forge apps. Includes Yarn, Vite, React 18, TypeScript, Vitest, Testing Library, Playwright, Eslint, and Atlaskit — everything you need to get started with modern tooling and best practices.
 
+This repository follows the principle of **"Grab It All – Use Only What You Need"**.
+It enables you to quickly start building Forge apps for **Jira, Confluence, Bitbucket**, or even a single app that integrates with all three applications.  
+
+
 ## Getting Started
 
 ### 0. Prerequisites
@@ -74,17 +78,6 @@ The Forge app should now be installed from the development environment and avail
 
 ## Available Scripts
 
-### Lint
-
-- Check for linting issues:
-  ```bash
-  yarn lint
-  ```
-- Automatically fix linting issues:
-  ```bash
-  yarn lint:fix
-  ```
-
 
 ### Build
 
@@ -130,6 +123,17 @@ yarn deploy:conf -e production  # For production
 `yarn test`
 
 
+### Lint
+
+- Check for linting issues:
+  ```bash
+  yarn lint
+  ```
+- Automatically fix linting issues:
+  ```bash
+  yarn lint:fix
+  ```
+
 # Development Workflow
 
 Once the app is installed (see Getting Started), follow this development loop:
@@ -159,6 +163,47 @@ Once the app is installed (see Getting Started), follow this development loop:
     cd packages/forge-conf
     forge install --upgrade   # Install the updated app version
     ```
+
+# Folders structure
+
+```bash
+└── packages # all workspaces of your project
+    └── forge-jira # Jira Forge app
+        ├── manifest.yml # main manifest file
+        └── src # Forge FAAS, resolvers, UI Kit modules, web triggers, custom fields, workflow postfunctions, and so on
+        └── ...
+    └── forge-conf # Confluence Forge app
+        ├── manifest.yml # main manifest file
+        └── src # Forge FAAS, resolvers, UI Kit modules, web triggers and so on
+        └── ...
+    └── forge-bitb # Bitbucket Forge app
+        ├── manifest.yml # main manifest file
+        └── src # Forge FAAS, resolvers, UI Kit modules, and so on
+        └── ...
+    └── shared # shared types, consts
+        └── ...
+    └── ui # Custom UI for all apps
+        └── ...
+    └── e2e # E2E tests for ui
+        └── ...
+└── .gitignore
+└── bitbucket-pipelines.yml # Github pipelines configuration file example
+└── eslint.config.js # Single eslint config file for all apps
+└── tsconfig.base.json # Base TypeScript config file for all apps
+└── package.json # overall workspace configuration and dependencies
+```
+
+# FAQ
+
+<details>
+  <summary><strong>Why is my app NOT eligible for the Runs on Atlassian program?</strong></summary>
+
+  **Short answer:**  
+  Your app's manifest file (`manifest.yml`) must not include any entries under the `permissions -> external` section.
+
+  For more details about the Runs on Atlassian program, please visit the [https://go.atlassian.com/runs-on-atlassian](https://go.atlassian.com/runs-on-atlassian).
+</details>
+
 
 # License
 

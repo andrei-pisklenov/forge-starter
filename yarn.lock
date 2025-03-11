@@ -26,6 +26,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@app/forge-bitb@workspace:packages/forge-bitb":
+  version: 0.0.0-use.local
+  resolution: "@app/forge-bitb@workspace:packages/forge-bitb"
+  dependencies:
+    "@app/shared": "workspace:^"
+    "@forge/api": "npm:^4.1.2"
+    "@forge/events": "npm:^0.9.6"
+    "@forge/resolver": "npm:1.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@app/forge-conf@workspace:packages/forge-conf":
   version: 0.0.0-use.local
   resolution: "@app/forge-conf@workspace:packages/forge-conf"

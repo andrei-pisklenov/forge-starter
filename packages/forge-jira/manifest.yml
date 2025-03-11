@@ -16,9 +16,20 @@ resources:
       port: 3003
 permissions:
   scopes:
+    # Jira core
     - read:jira-user
     - read:jira-work
     - write:jira-work
+    - manage:jira-project
+    - manage:jira-configuration
+    - manage:jira-webhook
+    # JSM
+    - read:servicedesk-request
+    - write:servicedesk-request
+    - manage:servicedesk-customer
+    # Assets
+    - read:cmdb-object:jira
+    # Cross apps
     - storage:app
   content:
     scripts:
@@ -27,6 +38,24 @@ permissions:
       - unsafe-eval
     styles:
       - unsafe-inline
+  external:
+    images:
+      - "*"
+    scripts:
+      - "*"
+    styles:
+      - "*"
+    fonts:
+      - "*"
+    frames:
+      - "*"
+    media:
+      - "*"
+    fetch:
+      backend:
+        - "*"
+      client:
+        - "*"
 app:
   id: ari:cloud:ecosystem::app/17e54327-5a86-4934-b641-c38975a89423
   runtime:

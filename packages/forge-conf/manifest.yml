@@ -16,10 +16,25 @@ resources:
       port: 3003
 permissions:
   scopes:
-    - read:confluence-space.summary # Read a summary of space information without expansions
-    - read:confluence-props # Read content properties
-    - read:confluence-content.all # Read all content, including content body (expansions permitted). Note, APIs using this scope may also return data allowed by read:confluence-space.summary. However, this scope is not a substitute for read:confluence-space.summary
-    - read:confluence-content.summary # Read a summary of the content, which is the content without expansions. Note, APIs using this scope may also return data allowed by read:confluence-space.summary. However, this scope is not a substitute for read:confluence-space.summary
+    - write:confluence-content # Permits the creation of pages, blogs, comments, and questions.
+    - write:page:confluence # Special scope for page creation
+    - read:confluence-space.summary # Read a summary of space information without expansions.
+    - write:confluence-space # Create, update, and delete space information.
+    - write:confluence-file # Upload attachments.
+    - read:confluence-props # Read content properties.
+    - write:confluence-props # Write content properties.
+    - manage:confluence-configuration # Manage global settings.
+    - read:confluence-content.all # Read all content, including content body (expansions permitted). Note, APIs using this scope may also return data allowed by read:confluence-space.summary. However, this scope is not a substitute for read:confluence-space.summary.
+    - read:confluence-content.summary # Read a summary of the content, which is the content without expansions. Note, APIs using this scope may also return data allowed by read:confluence-space.summary. However, this scope is not a substitute for read:confluence-space.summary.
+    - search:confluence # Search Confluence. Note, APIs using this scope may also return data allowed by read:confluence-space.summary and read:confluence-content.summary. However, this scope is not a substitute for read:confluence-space.summary or read:confluence-content.summary.
+    - read:confluence-content.permission # View content permission in Confluence.
+    - read:confluence-user # View user information in Confluence that you have access to, including usernames, email addresses, and profile pictures.
+    - read:confluence-groups # Permits retrieval of user groups.
+    - write:confluence-groups # Permits creation, removal, and update of user groups.
+    - readonly:content.attachment:confluence # Download attachments of a Confluence page or blogpost that you have access to.
+    - read:space:confluence # To search for spaces
+    - read:page:confluence # To get exact page
+    - delete:page:confluence # Delete a page by id https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-page/#api-pages-id-delete
     - storage:app
   content:
     scripts:
@@ -28,6 +43,24 @@ permissions:
       - unsafe-eval
     styles:
       - unsafe-inline
+  external:
+    images:
+      - "*"
+    scripts:
+      - "*"
+    styles:
+      - "*"
+    fonts:
+      - "*"
+    frames:
+      - "*"
+    media:
+      - "*"
+    fetch:
+      backend:
+        - "*"
+      client:
+        - "*"
 app:
   id: ari:cloud:ecosystem::app/2cabea09-3148-4a21-9d64-3239245546dc
   runtime:
