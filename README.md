@@ -33,27 +33,18 @@ To create the initial build, run one of the following commands, depending on the
 ```bash
 yarn build:jira   # For Jira app version
 yarn build:conf   # For Confluence app version
+yarn build:bitb   # For Bitbucket app version
 ```
 
 
 ### 3. Register, Deploy, Install
 
-#### Navigate to the app directory
-
-```bash
-cd ./packages/forge-jira    # For Jira version
-```
-    
-or
-
-```bash
-cd ./packages/forge-conf    # For Confluence version
-```
-
 #### Register the app with Forge:
 
 ```bash
-forge register
+yarn forge:register:jira # For Jira version
+yarn forge:register:conf # For Confluence version
+yarn forge:register:bitb # For Bitbucket version
 ```
 
 #### Deploy to Forge
@@ -61,7 +52,9 @@ forge register
 Deploy the app to the development environment:
 
 ```bash
-forge deploy
+yarn forge:deploy:jira # For Jira version
+yarn forge:deploy:conf # For Confluence version
+yarn forge:deploy:bitb # For Bitbucket version
 ```
 
 #### Install the App on Your Cloud Instance
@@ -69,52 +62,26 @@ forge deploy
 Install the app on your cloud instance by running:
 
 ```bash
-forge install
+yarn forge:install:jira # For Jira version
+yarn forge:install:conf # For Confluence version
+yarn forge:install:bitb # For Bitbucket version
 ```
 
 Follow the on-screen instructions to complete the process. 
 The Forge app should now be installed from the development environment and available on your cloud instance.
 
 
-## Available Scripts
-
-
-### Build
-
-Build the app for Jira or Confluence:
-
-```bash
-yarn build:jira   # For Jira version
-```
-
-or
-
-```bash
-yarn build:conf   # For Confluence version
-```
-
+## Available Scripts and additional parameters
 
 ### Deploy
-
-To build and deploy the app to the Forge development environment, run:
-
-```bash
-yarn deploy:jira   # For Jira version
-```
-
-or
-
-```bash
-yarn deploy:conf   # For Confluence version
-```
 
 To deploy to another environment (e.g., staging or production), append the environment flag:
 
 ```bash
-yarn deploy:jira -e staging     # For staging
-yarn deploy:jira -e production  # For production
-yarn deploy:conf -e staging     # For staging
-yarn deploy:conf -e production  # For production
+yarn forge:deploy:jira -e staging     # For staging
+yarn forge:deploy:jira -e production  # For production
+yarn forge:deploy:conf -e staging     # For staging
+yarn forge:deploy:conf -e production  # For production
 ```
 
 
@@ -134,11 +101,12 @@ yarn deploy:conf -e production  # For production
   yarn lint:fix
   ```
 
+
 # Development Workflow
 
 Once the app is installed (see Getting Started), follow this development loop:
 
-1. Start the UI with hot reloading and establish a Forge tunnel to redirect requests to localhost:
+1. Start the Custom UI with hot reloading and establish a Forge tunnel to redirect requests to localhost:
     ```bash
     yarn dev:jira   # For Jira version
     ```
@@ -151,23 +119,21 @@ Once the app is installed (see Getting Started), follow this development loop:
 2. Make changes to your app and enjoy instant feedback with hot-reloading.
 3. After major changes to the `manifest.yml`, deploy and reinstall the app:
     ```bash
-    yarn deploy:jira   # For Jira version
-    cd packages/forge-jira
-    forge install --upgrade   # Install the updated app version
+    yarn forge:deploy:jira   # For Jira version
+    yarn forge:install:jira --upgrade  # For Jira version
     ```
 
     or
 
     ```bash
-    yarn deploy:conf   # For Confluence version
-    cd packages/forge-conf
-    forge install --upgrade   # Install the updated app version
+    yarn forge:deploy:conf   # For Confluence version
+    yarn forge:install:conf --upgrade   # For Confluence version
     ```
 
 # Folders structure
 
 ```bash
-└── packages # all workspaces of your project
+└── packages # all workspaces of your monorepo project
     └── forge-jira # Jira Forge app
         ├── manifest.yml # main manifest file
         └── src # Forge FAAS, resolvers, UI Kit modules, web triggers, custom fields, workflow postfunctions, and so on
@@ -187,7 +153,7 @@ Once the app is installed (see Getting Started), follow this development loop:
     └── e2e # E2E tests for ui
         └── ...
 └── .gitignore
-└── bitbucket-pipelines.yml # Github pipelines configuration file example
+└── bitbucket-pipelines.yml # Github pipelines configuration file example (self hosted runner)
 └── eslint.config.js # Single eslint config file for all apps
 └── tsconfig.base.json # Base TypeScript config file for all apps
 └── package.json # overall workspace configuration and dependencies
