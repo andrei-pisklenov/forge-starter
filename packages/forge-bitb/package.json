@@ -4,7 +4,7 @@
   "main": "index.ts",
   "private": true,
   "scripts": {
-    "dev:jira": "forge tunnel",
+    "dev:bitb": "forge tunnel",
     "deploy": "forge deploy",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
