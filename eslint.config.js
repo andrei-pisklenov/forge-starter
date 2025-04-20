@@ -9,6 +9,7 @@ export default [
   stylistic.configs.customize({
     indent: 2,
     quotes: 'single',
+    braceStyle: '1tbs',
     semi: true,
     jsx: true,
   }),
@@ -45,6 +46,7 @@ export default [
           },
         },
       ],
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
   },
 ];

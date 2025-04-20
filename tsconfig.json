@@ -4,6 +4,7 @@
     "allowJs": true,
   },
   "include": [
-    "./eslint.config.js"
+    "./eslint.config.js",
+    "./vitest.config.ts"
   ]
 }

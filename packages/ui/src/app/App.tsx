@@ -1,5 +1,5 @@
 import { TESTID } from '@app/shared';
-import { Box } from '@atlaskit/primitives';
+import { Box, Text } from '@atlaskit/primitives';
 import Spinner from '@atlaskit/spinner';
 import { view } from '@forge/bridge';
 import type { FullContext } from '@forge/bridge/out/types';
@@ -18,7 +18,7 @@ export const App = () => {
 
   return (
     <Box testId={TESTID.APP_WRAPPER}>
-      {`This is "${String(context.extension.type)}"`}
+      <Text>{`This is "${String(context.extension.type)}"`}</Text>
     </Box>
   );
 };

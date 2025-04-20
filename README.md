@@ -170,6 +170,23 @@ Once the app is installed (see Getting Started), follow this development loop:
   For more details about the Runs on Atlassian program, please visit the [https://go.atlassian.com/runs-on-atlassian](https://go.atlassian.com/runs-on-atlassian).
 </details>
 
+<details>
+  <summary><strong>Dev Routines</strong></summary>
+
+   1. **Upgrade dependencies interactively**  
+    Use [`yarn upgrade-interactive`](https://classic.yarnpkg.com/en/docs/cli/upgrade-interactive/) to update your dependencies to the latest versions in a controlled way.
+   2. **Find unused files, dependencies, and exports**  
+    Use `yarn knip` to detect unused code. ⚠️ *Note: There may be false positives — review the results carefully before removing anything.*
+   3. **Refresh the lockfile**  
+    Run `yarn install --refresh-lockfile` to regenerate the `yarn.lock` file.  
+    This is helpful for:
+      - Upgrading Yarn versions
+      - Fixing "ghost" dependencies stuck in the lockfile
+   4. **Visualize your Vite bundle**  
+    Use `npx vite-bundle-visualizer` to analyze and optimize your Vite build output. 
+
+</details>
+
 
 # License
 
