@@ -1,24 +1,22 @@
-import { TESTID } from '@app/shared';
-import { Box, Text } from '@atlaskit/primitives';
+import { useGetContextQuery } from '@/hooks/useContext';
+import { MODULE_KEYS } from '@app/shared';
 import Spinner from '@atlaskit/spinner';
-import { view } from '@forge/bridge';
-import type { FullContext } from '@forge/bridge/out/types';
-import { useEffect, useState } from 'react';
+import { lazy, Suspense } from 'react';
+
+const GenericPlaceholder = lazy(() => import('@/components/GenericPlaceholder/GenericPlaceholder'));
+const JiraIssuePanel = lazy(() => import('@/components/JiraIssuePanel/JiraIssuePanel'));
 
 export const App = () => {
-  const [context, setContext] = useState<FullContext>();
+  const { data: context, isLoading } = useGetContextQuery();
 
-  useEffect(() => {
-    void view.getContext().then(setContext);
-  }, []);
-
-  if (!context) {
+  if (isLoading) {
     return <Spinner size="large" />;
   }
 
-  return (
-    <Box testId={TESTID.APP_WRAPPER}>
-      <Text>{`This is "${String(context.extension.type)}"`}</Text>
-    </Box>
-  );
+  switch (context?.moduleKey) {
+    case MODULE_KEYS.jiraIssuePanel:
+      return (<Suspense fallback={<>Loading...</>}><JiraIssuePanel context={context} /></Suspense>);
+    default:
+      return (<Suspense fallback={<>Loading...</>}><GenericPlaceholder context={context} /></Suspense>);
+  }
 };
