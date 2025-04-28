@@ -6,6 +6,13 @@ modules:
         function: resolver
       title: forge-starter-jira-issue-panel
       icon: resource:ui;icons/addon.svg
+  jira:projectPage:
+    - key: forge-starter-jira-project-page
+      resource: uikit
+      render: native
+      resolver:
+        function: resolver
+      title: forge-starter-jira-project-page
   jira:adminPage:
     - key: forge-starter-jira-admin-page # https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-admin-page/
       layout: native
@@ -32,7 +39,9 @@ modules:
     - key: resolver
       handler: index.handler
 resources:
-  - key: ui
+  - key: uikit # UI Kit example
+    path: src/frontend/index.tsx
+  - key: ui # Custom UI example
     path: ../ui/build
     tunnel:
       port: 3003

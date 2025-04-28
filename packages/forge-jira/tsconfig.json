@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "noEmit": false, // required by forge ts-loader
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx",
   },
   "include": [
     "./src"
