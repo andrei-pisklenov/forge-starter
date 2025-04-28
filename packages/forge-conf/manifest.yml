@@ -62,6 +62,6 @@ permissions:
       client:
         - "*"
 app:
-  id: ari:cloud:ecosystem::app/2cabea09-3148-4a21-9d64-3239245546dc
+  id: ari:cloud:ecosystem::app/2cabea09-3148-4a21-9d64-3239245546dc # Run `yarn forge:register:conf` from the project root to generate your unique app ID
   runtime:
     name: nodejs22.x
