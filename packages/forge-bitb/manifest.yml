@@ -52,7 +52,7 @@ permissions:
       client:
         - "*"
 app:
-  id: ari:cloud:ecosystem::app/1b2e1576-a655-4cc9-b30a-b2c325ccc9a4
+  id: ari:cloud:ecosystem::app/1b2e1576-a655-4cc9-b30a-b2c325ccc9a4 # Run `yarn forge:register:bitb` from the project root to generate your unique app ID
   runtime:
     name: nodejs22.x
   
