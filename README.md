@@ -187,6 +187,14 @@ Once the app is installed (see Getting Started), follow this development loop:
 
 </details>
 
+<details>
+  <summary><strong>UI Kit is not compatible with React 19</strong></summary>
+
+  This is a known issue — Atlassian is gradually updating UI Kit to support newer versions of React, but as of now, only React 18 is officially supported. 
+
+  The good news is that you can still use React 18 for your UI Kit-based frontend resources, while using a different React version (including React 19) for any Custom UI resources in your app.
+</details>
+
 
 # License
 
