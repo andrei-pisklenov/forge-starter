@@ -1,6 +1,6 @@
 import Button, { IconButton } from '@atlaskit/button/new';
 import Heading from '@atlaskit/heading';
-import CrossIcon from '@atlaskit/icon/glyph/cross';
+import CrossIcon from '@atlaskit/icon/core/cross';
 import { Box, Flex, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 import { Modal as ModalDialogClass, router, showFlag, view } from '@forge/bridge';

@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@app/shared": "workspace:^",
-    "@forge/api": "^5.2.0",
-    "@forge/events": "^1.0.1",
-    "@forge/resolver": "1.6.10"
+    "@forge/api": "^6.0.2",
+    "@forge/events": "^2.0.2",
+    "@forge/resolver": "1.6.15"
   }
 }

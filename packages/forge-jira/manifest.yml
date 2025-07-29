@@ -46,7 +46,8 @@ resources:
     tunnel:
       port: 3003
 permissions:
-  scopes: # https://developer.atlassian.com/platform/forge/manifest-reference/scopes-product-jira/
+  scopes:
+    # https://developer.atlassian.com/platform/forge/manifest-reference/scopes-product-jira/
     # Jira core
     - read:jira-user
     - read:jira-work
@@ -62,7 +63,8 @@ permissions:
     - read:cmdb-object:jira
     # Cross apps
     - storage:app
-  content: # https://developer.atlassian.com/platform/forge/manifest-reference/permissions/#content-permissions
+  content:
+    # https://developer.atlassian.com/platform/forge/manifest-reference/permissions/#content-permissions
     scripts:
       - unsafe-inline
       - unsafe-hashes
@@ -88,6 +90,6 @@ permissions:
       client:
         - "*"
 app:
-  id: ari:cloud:ecosystem::app/17e54327-5a86-4934-b641-c38975a89423 # Run `yarn forge:register:jira` from the project root to generate your unique app ID
+  id: ari:cloud:ecosystem::app/68596388-dbc0-4741-a0a8-94981437f332
   runtime:
     name: nodejs22.x
