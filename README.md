@@ -1,5 +1,12 @@
 # ForgeStarter
 
+![Vite](https://img.shields.io/badge/Vite-gray?logo=vite)
+![React](https://img.shields.io/badge/React-gray?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-gray?logo=typescript)
+![ESLint](https://img.shields.io/badge/ESLint-gray?logo=eslint)
+![Vitest](https://img.shields.io/badge/Vitest-unit--tests-6E9F18?logo=vitest)
+![Playwright](https://img.shields.io/badge/Playwright-e2e--tests-45BA6E)
+
 ![](./docs/assets/repo-banner-crop.png)
 
 ⚡️ A feature-packed, opinionated starter template for building Atlassian Forge apps. Includes Yarn, Vite, React 18, TypeScript, Vitest, Testing Library, Playwright, Eslint, and Atlaskit — everything you need to get started with modern tooling and best practices.
