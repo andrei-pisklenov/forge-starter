@@ -36,43 +36,30 @@ yarn install
 ### 2. Initial Build
 
 To create the initial build, run one of the following commands, depending on the app version you'd like to start with:
-
-```bash
-yarn build:jira   # For Jira app version
-yarn build:conf   # For Confluence app version
-yarn build:bitb   # For Bitbucket app version
-```
-
+- `yarn build:jira` - For Jira app version
+- `yarn build:conf` - For Confluence app version
+- `yarn build:bitb` - For Bitbucket app version
 
 ### 3. Register, Deploy, Install
 
 #### Register the app with Forge:
-
-```bash
-yarn forge:register:jira # For Jira version
-yarn forge:register:conf # For Confluence version
-yarn forge:register:bitb # For Bitbucket version
-```
+- `yarn forge:register:jira` - For Jira version
+- `yarn forge:register:conf` - For Confluence version
+- `yarn forge:register:bitb` - For Bitbucket version
 
 #### Deploy to Forge
 
 Deploy the app to the development environment:
-
-```bash
-yarn forge:deploy:jira # For Jira version
-yarn forge:deploy:conf # For Confluence version
-yarn forge:deploy:bitb # For Bitbucket version
-```
+- `yarn forge:deploy:jira` - For Jira version
+- `yarn forge:deploy:conf` - For Confluence version
+- `yarn forge:deploy:bitb` - For Bitbucket version
 
 #### Install the App on Your Cloud Instance
 
 Install the app on your cloud instance by running:
-
-```bash
-yarn forge:install:jira # For Jira version
-yarn forge:install:conf # For Confluence version
-yarn forge:install:bitb # For Bitbucket version
-```
+- `yarn forge:install:jira` - For Jira version
+- `yarn forge:install:conf` - For Confluence version
+- `yarn forge:install:bitb` - For Bitbucket version
 
 Follow the on-screen instructions to complete the process. 
 The Forge app should now be installed from the development environment and available on your cloud instance.
@@ -83,14 +70,10 @@ The Forge app should now be installed from the development environment and avail
 ### Deploy
 
 To deploy to another environment (e.g., staging or production), append the environment flag:
-
-```bash
-yarn forge:deploy:jira -e staging     # For staging
-yarn forge:deploy:jira -e production  # For production
-yarn forge:deploy:conf -e staging     # For staging
-yarn forge:deploy:conf -e production  # For production
-```
-
+- `yarn forge:deploy:jira -e staging`    - For staging
+- `yarn forge:deploy:jira -e production` - For production
+- `yarn forge:deploy:conf -e staging`    - For staging
+- `yarn forge:deploy:conf -e production` - For production
 
 ### Test
 
@@ -125,17 +108,13 @@ Once the app is installed (see Getting Started), follow this development loop:
     ```
 2. Make changes to your app and enjoy instant feedback with hot-reloading.
 3. After major changes to the `manifest.yml`, deploy and reinstall the app:
-    ```bash
-    yarn forge:deploy:jira   # For Jira version
-    yarn forge:install:jira --upgrade  # For Jira version
-    ```
+  - `yarn forge:deploy:jira` - For Jira version
+  - `yarn forge:install:jira --upgrade` - For Jira version
 
     or
-
-    ```bash
-    yarn forge:deploy:conf   # For Confluence version
-    yarn forge:install:conf --upgrade   # For Confluence version
-    ```
+  
+  - `yarn forge:deploy:conf` - For Confluence version
+  - `yarn forge:install:conf --upgrade` - For Confluence version
 
 # Folders structure
 
