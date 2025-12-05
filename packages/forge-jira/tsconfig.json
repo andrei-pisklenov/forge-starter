@@ -4,6 +4,7 @@
     "noEmit": false, // required by forge ts-loader
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
+    "skipLibCheck": true
   },
   "include": [
     "./src"
