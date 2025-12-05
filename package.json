@@ -17,20 +17,19 @@
     "forge:register:bitb": "cd ./packages/forge-bitb && forge register",
     "forge:deploy:jira": "yarn build:jira && yarn workspace @app/forge-jira deploy",
     "forge:deploy:conf": "yarn build:conf && yarn workspace @app/forge-conf deploy",
-    "forge:deploy:bitb": "yarn build:conf && yarn workspace @app/forge-bitb deploy",
+    "forge:deploy:bitb": "yarn build:bitb && yarn workspace @app/forge-bitb deploy",
     "forge:install:jira": "cd ./packages/forge-jira && forge install",
     "forge:install:conf": "cd ./packages/forge-conf && forge install",
     "forge:install:bitb": "cd ./packages/forge-bitb && forge install",
     "test:jira": "yarn workspaces foreach -A -p -v -i run test:jira",
     "test:conf": "yarn workspaces foreach -A -p -v -i run test:conf",
     "test:bitb": "yarn workspaces foreach -A -p -v -i run test:bitb",
+    "test": "yarn workspaces foreach -A -p -v -i run test",
     "lint": "yarn workspaces foreach -A -p -v -i run lint",
     "lint:fix": "yarn workspaces foreach -A -p -v -i run lint:fix",
-    "knip": "knip"
+    "knip": "knip",
+    "prepare": "husky"
   },
-  "pre-commit": [
-    "lint:fix"
-  ],
   "workspaces": {
     "packages": [
       "packages/*"
@@ -43,6 +42,7 @@
     "@eslint/js": "^9.39.1",
     "@stylistic/eslint-plugin": "^5.6.1",
     "eslint": "^9.39.1",
+    "husky": "^9.1.7",
     "knip": "^5.71.0",
     "pre-commit": "^1.2.2",
     "typescript-eslint": "^8.48.1"
