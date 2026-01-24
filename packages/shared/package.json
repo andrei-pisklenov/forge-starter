@@ -11,14 +11,14 @@
     "src": "src"
   },
   "devDependencies": {
-    "@types/react": "^19.2.7",
+    "@types/react": "^19.2.9",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@forge/api": "^6.4.0",
-    "@forge/bridge": "^5.9.1",
-    "@forge/events": "^2.0.12",
-    "@forge/react": "^11.8.1",
+    "@forge/api": "^6.4.3",
+    "@forge/bridge": "^5.11.0",
+    "@forge/events": "^2.0.16",
+    "@forge/react": "^11.10.0",
     "@forge/resolver": "^1.7.1"
   }
 }
